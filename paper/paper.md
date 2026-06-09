@@ -10,11 +10,11 @@ tags:
   - semantic web
 authors:
   - name: Andra Waagmeester
-    orcid: 0000-0001-9773-4008   # TODO: confirm ORCID
+    orcid: 0000-0001-9773-4008
     affiliation: 1
     role: Conceptualization, Software, Writing – original draft
   - name: Jerven Bolleman
-    orcid: 0000-0002-7449-1266   # TODO: confirm ORCID
+    orcid: 0000-0002-7449-1266   
     affiliation: 2
     role: Conceptualization, Writing – review & editing
   - name: Ruben Taelman
@@ -22,9 +22,9 @@ authors:
     affiliation: 3
     role: Software, Writing – review & editing
   - name: Thomas Pellissier Tanon
-    # TODO: add ORCID
+    orcid: 0000-0002-0620-6486
     affiliation: 4
-    role: Software, Writing – review & editing
+    role: Conceptualization, Software, Writing – review & editing
 affiliations:
   - name: Amsterdam UMC
     index: 1
