@@ -40,8 +40,8 @@ date: 9 June 2026
 cito-bibliography: paper.bib
 # TODO: confirm the official meeting name / registration on https://index.biohackrxiv.org/meetings
 event: BHOviedo2026
-biohackathon_name: "BioHackathon Europe 2026"
-biohackathon_url:   "https://biohackathon-europe.org/"
+biohackathon_name: "Cost Action GOBLIN hackathon Oviedo 2026"
+biohackathon_url:   "https://dmki-tuwien.github.io/goblin-hackathon/venue-accommodation.html"
 biohackathon_location: "Oviedo, Spain, 2026"
 group: GOBLIN
 git_url: https://github.com/andrawaag/oviedo-goblin-hackathon26
