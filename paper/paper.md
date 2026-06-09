@@ -17,12 +17,25 @@ authors:
     orcid: 0000-0002-7449-1266   # TODO: confirm ORCID
     affiliation: 2
     role: Conceptualization, Writing – review & editing
+  - name: Ruben Taelman
+    orcid: 0000-0001-5118-256X   # TODO: confirm ORCID
+    affiliation: 3
+    role: Software, Writing – review & editing
+  - name: Thomas Pellissier Tanon
+    # TODO: add ORCID
+    affiliation: 4
+    role: Software, Writing – review & editing
 affiliations:
   - name: Amsterdam UMC
     index: 1
   - name: SIB Swiss Institute of Bioinformatics
     ror: 002n09z45              # TODO: confirm ROR
     index: 2
+  - name: IDLab, Ghent University – imec
+    ror: 00cv9y106              # TODO: confirm ROR
+    index: 3
+  - name: (affiliation to be confirmed)
+    index: 4
 date: 9 June 2026
 cito-bibliography: paper.bib
 # TODO: confirm the official meeting name / registration on https://index.biohackrxiv.org/meetings
@@ -32,7 +45,7 @@ biohackathon_url:   "https://biohackathon-europe.org/"
 biohackathon_location: "Oviedo, Spain, 2026"
 group: GOBLIN
 git_url: https://github.com/andrawaag/oviedo-goblin-hackathon26
-authors_short: Waagmeester \& Bolleman
+authors_short: Waagmeester \emph{et al.}
 ---
 
 
