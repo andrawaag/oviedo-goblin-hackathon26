@@ -56,7 +56,7 @@ proposal intended to start a conversation rather than a finished specification**
 ## The native SSSOM format
 
 The core of each TSV row — `subject_id`, `predicate_id`, `object_id` — *is* an RDF triple; the
-remaining columns (`mapping_justification`, labels, …) and the header (provenance, confidence, the
+remaining columns (`mapping_justification`, labels, ...) and the header (provenance, confidence, the
 `curie_map`) are metadata about that triple or about the set. A mapping is therefore, ontologically,
 *a statement about a statement*, which can be expressed in RDF at two different layers.
 
@@ -73,16 +73,16 @@ default graph. This sits at the RDF *dataset* layer and faithfully models `sssom
 universally supported (plain SPARQL 1.1 `GRAPH`), but per-mapping metadata is not attached.
 
 *RDF 1.2 (Turtle-star).* Each mapping triple is asserted and annotated with an RDF 1.2 triple term
-[@citesAsAuthority:Hartig2021RDFStar], using the `{| … |}` annotation syntax that desugars to a
+[@citesAsAuthority:Hartig2021RDFStar], using the `{| ... |}` annotation syntax that desugars to a
 reifier (`_:m rdf:reifies <<( s p o )>>`) carrying the justification, labels and a back-link to the
 set. This sits at the *abstract-syntax* layer, models `sssom:Mapping`, and is lossless — at the cost
-of a ~5× statement blow-up and a dependency on RDF-star-aware tooling.
+of a ~5x statement blow-up and a dependency on RDF-star-aware tooling.
 
 ## CURIE expansion and IRI-unsafe local names
 
 The header CURIE map is treated as authoritative. However, some local-name parts are not valid
 inside an IRI — the canonical case is the `SMILES:` "prefix", which encodes chemical structures
-rather than identifiers and contains characters (`/`, `#`, `[`, `]`, `=`, …) that IRI syntax forbids.
+rather than identifiers and contains characters (`/`, `#`, `[`, `]`, `=`, ...) that IRI syntax forbids.
 We percent-encode the local part (per RFC 3987), leaving the namespace literal, so the result is a
 syntactically valid IRI.
 
@@ -110,7 +110,7 @@ Table: Summary of the two RDF renderings of the OLS SSSOM extracts.
 | Property | Named graphs (TriG) | RDF 1.2 (Turtle-star) |
 | -------- | ------------------- | --------------------- |
 | RDF layer | dataset / context (quads) | abstract syntax (triple terms) |
-| Granularity | one graph per mapping set | per mapping (`{\| … \|}`) |
+| Granularity | one graph per mapping set | per mapping (`{\| ... \|}`) |
 | Models | `sssom:MappingSet` | `sssom:Mapping` |
 | Metadata carried | set-level provenance | justification + labels (lossless) |
 | Tooling | universal (SPARQL 1.1) | needs RDF-star engine |
@@ -119,8 +119,8 @@ Table: Summary of the two RDF renderings of the OLS SSSOM extracts.
 # Discussion
 
 The two renderings are not competing encodings of the same idea: they attach metadata at different
-layers of the RDF stack and model different SSSOM entities (named graph ↔ `MappingSet`, triple term
-↔ `Mapping`). They therefore *compose* — the named-graph file is the portable, partition-by-source
+layers of the RDF stack and model different SSSOM entities (named graph <-> `MappingSet`, triple term
+ <->  `Mapping`). They therefore *compose* — the named-graph file is the portable, partition-by-source
 view, and the RDF 1.2 file is the lossless, per-mapping master.
 
 Relative to the existing SSSOM/RDF representation, our approach makes two deliberate scope choices.
@@ -133,7 +133,7 @@ This work is explicitly a **first-draft proposal** and the outputs require valid
 
 - **IRIs must be minted.** The serializer emits two placeholder IRIs under `w3id.org` that we do not
   own: a convenience predicate `https://w3id.org/sssom/mapping_set` (not a standard SSSOM slot) and a
-  `https://w3id.org/sssom/.well-known/curie/…` fallback for unresolved CURIEs. The reused `sssom:`
+  `https://w3id.org/sssom/.well-known/curie/...` fallback for unresolved CURIEs. The reused `sssom:`
   slot IRIs are assumed to match the official SSSOM model and must be verified.
 - **Modelling is not yet validated.** Parsing with an RDF 1.2 parser confirms syntactic validity,
   not correct modelling; the shapes need review against the SSSOM community.
