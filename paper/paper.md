@@ -160,7 +160,7 @@ support.
 
 ## Acknowledgements
 
-We thank the organizers of the BioHackathon and the GOBLIN project participants for discussions. We
+We thank the organizers of the Oviedo GOBLIN hackathon and the GOBLIN project participants for discussions. We
 note that the reference serializer was produced with the assistance of a large language model
 (Claude); all design decisions and caveats remain the responsibility of the authors.
 
