@@ -58,7 +58,7 @@ comment lines) followed by a tab-separated (TSV) table of mappings. Although the
 ontological commitments, the files are most often consumed as plain dataframes.
 
 SSSOM already defines an RDF/OWL representation that describes a *mapping set as a whole*. During
-the GOBLIN project at the BioHackathon, we explored two alternative, complementary RDF renderings
+the GOBLIN hackathon, we explored two alternative, complementary RDF renderings
 that instead make the individual *mapping* the first-class object, and we compared the design
 trade-offs between them. This report documents that exploration. **It is an early, first-draft
 proposal intended to start a conversation rather than a finished specification** (see
@@ -85,11 +85,11 @@ core triples live inside the graph and set-level provenance is asserted about th
 default graph. This sits at the RDF *dataset* layer and faithfully models `sssom:MappingSet`. It is
 universally supported (plain SPARQL 1.1 `GRAPH`), but per-mapping metadata is not attached.
 
-*RDF 1.2 (Turtle-star).* Each mapping triple is asserted and annotated with an RDF 1.2 triple term
-[@citesAsAuthority:Hartig2021RDFStar], using the `{| ... |}` annotation syntax that desugars to a
+*RDF 1.2 (Turtle 1.2).* Each mapping triple is asserted and annotated with an RDF 1.2 triple term
+[@citesAsAuthority:Turtle12], using the `{| ... |}` annotation syntax that desugars to a
 reifier (`_:m rdf:reifies <<( s p o )>>`) carrying the justification, labels and a back-link to the
 set. This sits at the *abstract-syntax* layer, models `sssom:Mapping`, and is lossless — at the cost
-of a ~5x statement blow-up and a dependency on RDF-star-aware tooling.
+of a ~5x statement blow-up and a dependency on an RDF 1.2-aware engine.
 
 ## CURIE expansion and IRI-unsafe local names
 
@@ -120,13 +120,13 @@ the local endpoint with remote endpoints such as Wikidata.
 
 Table: Summary of the two RDF renderings of the OLS SSSOM extracts.
 
-| Property | Named graphs (TriG) | RDF 1.2 (Turtle-star) |
+| Property | Named graphs (TriG) | RDF 1.2 (Turtle 1.2) |
 | -------- | ------------------- | --------------------- |
 | RDF layer | dataset / context (quads) | abstract syntax (triple terms) |
 | Granularity | one graph per mapping set | per mapping (`{\| ... \|}`) |
 | Models | `sssom:MappingSet` | `sssom:Mapping` |
 | Metadata carried | set-level provenance | justification + labels (lossless) |
-| Tooling | universal (SPARQL 1.1) | needs RDF-star engine |
+| Tooling | universal (SPARQL 1.1) | needs SPARQL 1.2 engine |
 | Size | 1.5 GB (~6.24M quads) | 3.7 GB (~34M statements) |
 
 # Discussion
