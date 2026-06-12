@@ -23,16 +23,19 @@ authors:
     role: Software, Writing – review & editing
   - name: Thomas Pellissier Tanon
     orcid: 0000-0002-0620-6486
+    affiliation: 4
     role: Conceptualization, Software
 affiliations:
   - name: Amsterdam UMC
     index: 1
   - name: SIB Swiss Institute of Bioinformatics
-    ror: 002n09z45              # TODO: confirm ROR
+    ror: 002n09z45              
     index: 2
   - name: IDLab, Ghent University – imec
-    ror: 00cv9y106              # TODO: confirm ROR
+    ror: 00cv9y106              
     index: 3
+  - name: Independent
+    index: 4
 date: 9 June 2026
 cito-bibliography: paper.bib
 # TODO: confirm the official meeting name / registration on https://index.biohackrxiv.org/meetings
