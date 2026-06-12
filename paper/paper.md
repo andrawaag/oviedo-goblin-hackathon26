@@ -68,7 +68,7 @@ proposal intended to start a conversation rather than a finished specification**
 
 ## The native SSSOM format
 
-The core of each TSV row — `subject_id`, `predicate_id`, `object_id` — *is* an RDF triple; the
+The core of each TSV row « `subject_id`, `predicate_id`, `object_id` » *is* an RDF triple; the
 remaining columns (`mapping_justification`, labels, ...) and the header (provenance, confidence, the
 `curie_map`) are metadata about that triple or about the set. A mapping is therefore, ontologically,
 *a statement about a statement*, which can be expressed in RDF at two different layers.
@@ -88,13 +88,13 @@ universally supported (plain SPARQL 1.1 `GRAPH`), but per-mapping metadata is no
 *RDF 1.2 (Turtle 1.2).* Each mapping triple is asserted and annotated with an RDF 1.2 triple term
 [@citesAsAuthority:Turtle12], using the `{| ... |}` annotation syntax that desugars to a
 reifier (`_:m rdf:reifies <<( s p o )>>`) carrying the justification, labels and a back-link to the
-set. This sits at the *abstract-syntax* layer, models `sssom:Mapping`, and is lossless — at the cost
+set. This sits at the *abstract-syntax* layer, models `sssom:Mapping`, and is lossless, at the cost
 of a ~5x statement blow-up and a dependency on an RDF 1.2-aware engine.
 
 ## CURIE expansion and IRI-unsafe local names
 
 The header CURIE map is treated as authoritative. However, some local-name parts are not valid
-inside an IRI — the canonical case is the `SMILES:` "prefix", which encodes chemical structures
+inside an IRI. The canonical case is the `SMILES:` "prefix", which encodes chemical structures
 rather than identifiers and contains characters (`/`, `#`, `[`, `]`, `=`, ...) that IRI syntax forbids.
 We percent-encode the local part (per RFC 3987), leaving the namespace literal, so the result is a
 syntactically valid IRI.
@@ -108,7 +108,7 @@ as future work.
 
 # Results
 
-The full set of OLS SSSOM extracts — **271 mapping sets, 6,238,000 mappings** — was rendered into
+The full set of OLS SSSOM extracts « **271 mapping sets, 6,238,000 mappings** » was rendered into
 both formats in ~91 s. Both outputs were validated by parsing with a strict RDF 1.2 parser
 (pyoxigraph). The renderings, schema diagrams (drawn in ShEx and, for RDF 1.2, in ShEx *style* since
 ShEx 2.1 has no triple-term construct yet), and tooling notes are published in the project code
@@ -133,7 +133,7 @@ Table: Summary of the two RDF renderings of the OLS SSSOM extracts.
 
 The two renderings are not competing encodings of the same idea: they attach metadata at different
 layers of the RDF stack and model different SSSOM entities (named graph <-> `MappingSet`, triple term
- <->  `Mapping`). They therefore *compose* — the named-graph file is the portable, partition-by-source
+ <->  `Mapping`). They therefore compose the named-graph file is the portable, partition-by-source
 view, and the RDF 1.2 file is the lossless, per-mapping master.
 
 Relative to the existing SSSOM/RDF representation, our approach makes two deliberate scope choices.
